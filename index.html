@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Descent — a parallax journey</title>
+  <meta name="description" content="Descent: a parallax scrolling journey from mountain peaks at dawn to the bottom of the ocean." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2 26 12 10l6 9 4-5 8 12z' fill='%23ff9e7a'/></svg>" />
+</head>
+<body>
+  <!-- Fixed UI -->
+  <header class="top">
+    <a href="#peaks" class="brand">Descent</a>
+    <nav class="chapters" aria-label="Chapters">
+      <a href="#peaks" data-chapter>Peaks</a>
+      <a href="#forest" data-chapter>Forest</a>
+      <a href="#coast" data-chapter>Coast</a>
+      <a href="#shallows" data-chapter>Shallows</a>
+      <a href="#abyss" data-chapter>Abyss</a>
+    </nav>
+  </header>
+
+  <aside class="meter" aria-hidden="true">
+    <span class="meter__label" id="meterLabel">Altitude</span>
+    <span class="meter__value"><b id="meterValue">4,800</b> m</span>
+    <span class="meter__track"><span class="meter__fill" id="meterFill"></span><span class="meter__sea"></span></span>
+  </aside>
+
+  <main>
+    <!-- 1. PEAKS -->
+    <section class="scene peaks" id="peaks" data-scene>
+      <div class="sky sky--dawn"></div>
+      <div class="layer stars-dawn" data-speed="0.85"></div>
+      <div class="layer" data-speed="0.75" data-depth="0.05"><div class="sun"></div></div>
+      <div class="layer clouds" data-speed="0.7" data-x="-0.15" data-depth="0.1">
+        <span class="cloud" style="--x:8%;--y:22%;--s:1.2"></span>
+        <span class="cloud" style="--x:62%;--y:14%;--s:.8"></span>
+        <span class="cloud" style="--x:82%;--y:30%;--s:1"></span>
+      </div>
+      <div class="layer birds" data-speed="0.6" data-x="0.25" data-depth="0.15">
+        <span class="bird" style="--d:0s;--y:30%;--t:22s"></span>
+        <span class="bird" style="--d:-6s;--y:24%;--t:26s"></span>
+        <span class="bird" style="--d:-12s;--y:34%;--t:20s"></span>
+        <span class="bird" style="--d:-3s;--y:20%;--t:30s"></span>
+      </div>
+      <svg class="layer ridge" data-ridge="0" data-speed="0.62" data-depth="0.12" preserveAspectRatio="none"></svg>
+      <svg class="layer ridge" data-ridge="1" data-speed="0.5" data-depth="0.2" preserveAspectRatio="none"></svg>
+      <div class="layer hero" data-speed="0.42" data-depth="0.25">
+        <p class="hero__eyebrow">A journey of 7,800 metres</p>
+        <h1 class="hero__title"><span>Desc</span><span>ent</span></h1>
+        <p class="hero__sub">Scroll down. Keep going.</p>
+      </div>
+      <svg class="layer ridge" data-ridge="2" data-speed="0.34" data-depth="0.32" preserveAspectRatio="none"></svg>
+      <svg class="layer ridge" data-ridge="3" data-speed="0.18" data-depth="0.45" preserveAspectRatio="none"></svg>
+      <svg class="layer ridge" data-ridge="4" data-speed="0" data-depth="0.6" preserveAspectRatio="none"></svg>
+      <div class="scroll-cue"><span></span>Scroll</div>
+    </section>
+
+    <!-- 2. FOREST -->
+    <section class="scene forest" id="forest" data-scene>
+      <div class="sky sky--forest"></div>
+      <div class="layer mist mist--far" data-speed="0.6" data-x="0.12"></div>
+      <svg class="layer trees" data-trees="0" data-speed="0.55" data-depth="0.1" preserveAspectRatio="none"></svg>
+      <div class="layer chapter chapter--left" data-speed="0.3" data-depth="0.15">
+        <p class="chapter__no">02 · 3,100 m</p>
+        <h2>The Forest</h2>
+        <p>Below the treeline the air thickens. Every row of pines is a little closer and a little faster, and the further hills fall away behind you.</p>
+      </div>
+      <svg class="layer trees" data-trees="1" data-speed="0.38" data-depth="0.22" preserveAspectRatio="none"></svg>
+      <div class="layer mist mist--near" data-speed="0.3" data-x="-0.18"></div>
+      <div class="layer fireflies" data-speed="0.2" data-depth="0.4" id="fireflies"></div>
+      <svg class="layer trees" data-trees="2" data-speed="0.18" data-depth="0.4" preserveAspectRatio="none"></svg>
+      <svg class="layer trees" data-trees="3" data-speed="-0.08" data-depth="0.65" preserveAspectRatio="none"></svg>
+    </section>
+
+    <!-- 3. COAST -->
+    <section class="scene coast" id="coast" data-scene>
+      <div class="sky sky--coast"></div>
+      <div class="layer" data-speed="0.7" data-depth="0.05"><div class="sun sun--set"></div></div>
+      <div class="layer clouds clouds--dusk" data-speed="0.6" data-x="0.1" data-depth="0.1">
+        <span class="cloud" style="--x:12%;--y:14%;--s:1.4"></span>
+        <span class="cloud" style="--x:70%;--y:8%;--s:1"></span>
+      </div>
+      <div class="layer chapter chapter--right" data-speed="0.45" data-depth="0.12">
+        <p class="chapter__no">03 · 0 m</p>
+        <h2>The Coast</h2>
+        <p>Sea level. The sun sinks while the waves slide past at different speeds, and the horizon is the only thing that holds still.</p>
+      </div>
+      <div class="layer waves" data-speed="0.4" data-x="-0.18" data-depth="0.15"><div class="wave wave--1"></div></div>
+      <div class="layer waves" data-speed="0.3" data-x="0.24" data-depth="0.25"><div class="wave wave--2"></div></div>
+      <div class="layer waves" data-speed="0.18" data-x="-0.32" data-depth="0.35"><div class="wave wave--3"></div></div>
+      <div class="layer waves" data-speed="0.05" data-x="0.42" data-depth="0.5"><div class="wave wave--4"></div></div>
+    </section>
+
+    <!-- 4. SHALLOWS -->
+    <section class="scene shallows" id="shallows" data-scene>
+      <div class="sky sky--sea"></div>
+      <div class="layer caustics" data-speed="0.5" aria-hidden="true"></div>
+      <div class="layer rays" data-speed="0.6" data-x="0.08">
+        <span style="--x:31%;--r:-14deg;--w:90px"></span><span style="--x:41%;--r:-8deg;--w:140px"></span>
+        <span style="--x:52%;--r:6deg;--w:70px"></span><span style="--x:62%;--r:12deg;--w:120px"></span>
+      </div>
+      <div class="layer school" data-speed="0.55" data-x="0.35" data-depth="0.1" data-fish="14" data-size="14" data-color="#2d7c96"></div>
+      <div class="layer chapter chapter--left" data-speed="0.35" data-depth="0.15">
+        <p class="chapter__no">04 · −200 m</p>
+        <h2>The Shallows</h2>
+        <p>Schools drift past at different depths. The ones far away barely move and the close ones dart. <em>Click the water</em> to blow bubbles.</p>
+      </div>
+      <div class="layer school" data-speed="0.3" data-x="-0.6" data-depth="0.3" data-fish="9" data-size="26" data-color="#ffb35c"></div>
+      <div class="layer bubbles" data-speed="0.15" id="bubbles"></div>
+      <div class="layer school" data-speed="0.05" data-x="1.1" data-depth="0.5" data-fish="4" data-size="56" data-color="#ff7a59"></div>
+      <div class="layer kelp" data-speed="-0.12" data-depth="0.7" id="kelp"></div>
+    </section>
+
+    <!-- 5. ABYSS -->
+    <section class="scene abyss" id="abyss" data-scene>
+      <div class="sky sky--abyss"></div>
+      <div class="layer plankton" data-speed="0.6" data-depth="0.1" data-plankton="70"></div>
+      <div class="layer plankton plankton--near" data-speed="0.3" data-depth="0.35" data-plankton="30"></div>
+      <div class="layer jellies" data-speed="0.45" data-depth="0.2" data-jellies="far"></div>
+      <div class="layer chapter chapter--center" data-speed="0.25" data-depth="0.15">
+        <p class="chapter__no">05 · −3,000 m</p>
+        <h2>The Abyss</h2>
+        <p>No sunlight reaches this deep. The only light comes from the creatures, and they'll react if you poke them.</p>
+        <button class="ascend" id="ascend">Ascend ↑</button>
+      </div>
+      <div class="layer jellies" data-speed="0.12" data-depth="0.55" data-jellies="near"></div>
+      <div class="layer seabed" data-speed="0" data-depth="0.4"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
